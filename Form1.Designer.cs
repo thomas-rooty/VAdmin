@@ -40,42 +40,47 @@ namespace VAdmin
             // txtLogin
             // 
             this.txtLogin.AutoSize = true;
-            this.txtLogin.Location = new System.Drawing.Point(60, 35);
+            this.txtLogin.Location = new System.Drawing.Point(80, 43);
+            this.txtLogin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(39, 13);
+            this.txtLogin.Size = new System.Drawing.Size(47, 16);
             this.txtLogin.TabIndex = 0;
             this.txtLogin.Text = "Login :";
             // 
             // txtPassword
             // 
             this.txtPassword.AutoSize = true;
-            this.txtPassword.Location = new System.Drawing.Point(60, 72);
+            this.txtPassword.Location = new System.Drawing.Point(80, 89);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(59, 13);
+            this.txtPassword.Size = new System.Drawing.Size(74, 16);
             this.txtPassword.TabIndex = 1;
             this.txtPassword.Text = "Password :";
             this.txtPassword.Click += new System.EventHandler(this.label2_Click);
             // 
             // postLogin
             // 
-            this.postLogin.Location = new System.Drawing.Point(141, 32);
+            this.postLogin.Location = new System.Drawing.Point(188, 39);
+            this.postLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.postLogin.Name = "postLogin";
-            this.postLogin.Size = new System.Drawing.Size(100, 20);
+            this.postLogin.Size = new System.Drawing.Size(132, 22);
             this.postLogin.TabIndex = 2;
             // 
             // postPassword
             // 
-            this.postPassword.Location = new System.Drawing.Point(141, 69);
+            this.postPassword.Location = new System.Drawing.Point(188, 85);
+            this.postPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.postPassword.Name = "postPassword";
             this.postPassword.PasswordChar = '•';
-            this.postPassword.Size = new System.Drawing.Size(100, 20);
+            this.postPassword.Size = new System.Drawing.Size(132, 22);
             this.postPassword.TabIndex = 3;
             // 
             // but_Connection
             // 
-            this.but_Connection.Location = new System.Drawing.Point(83, 130);
+            this.but_Connection.Location = new System.Drawing.Point(111, 160);
+            this.but_Connection.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.but_Connection.Name = "but_Connection";
-            this.but_Connection.Size = new System.Drawing.Size(135, 23);
+            this.but_Connection.Size = new System.Drawing.Size(180, 28);
             this.but_Connection.TabIndex = 4;
             this.but_Connection.Text = "Se connecter";
             this.but_Connection.UseVisualStyleBackColor = true;
@@ -85,9 +90,10 @@ namespace VAdmin
             // 
             this.isAccountValid.AutoSize = true;
             this.isAccountValid.ForeColor = System.Drawing.Color.Red;
-            this.isAccountValid.Location = new System.Drawing.Point(63, 98);
+            this.isAccountValid.Location = new System.Drawing.Point(84, 121);
+            this.isAccountValid.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.isAccountValid.Name = "isAccountValid";
-            this.isAccountValid.Size = new System.Drawing.Size(179, 17);
+            this.isAccountValid.Size = new System.Drawing.Size(212, 20);
             this.isAccountValid.TabIndex = 5;
             this.isAccountValid.Text = "Le compte spécifié n\'est pas valide";
             this.isAccountValid.UseCompatibleTextRendering = true;
@@ -95,15 +101,16 @@ namespace VAdmin
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(301, 165);
+            this.ClientSize = new System.Drawing.Size(591, 203);
             this.Controls.Add(this.isAccountValid);
             this.Controls.Add(this.but_Connection);
             this.Controls.Add(this.postPassword);
             this.Controls.Add(this.postLogin);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtLogin);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "VAdmin - Connexion";
