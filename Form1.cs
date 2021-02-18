@@ -30,9 +30,10 @@ namespace VAdmin
             if(login == "admin" && password == "admin")
             {
                 MessageBox.Show("Condition testée");
+                isAccountValid.Visible = false;
             } else
             {
-                MessageBox.Show("Mauvais identifiants");
+                isAccountValid.Visible = true;
             }
         }
     }

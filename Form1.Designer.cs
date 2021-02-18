@@ -34,12 +34,13 @@ namespace VAdmin
             this.postLogin = new System.Windows.Forms.TextBox();
             this.postPassword = new System.Windows.Forms.TextBox();
             this.but_Connection = new System.Windows.Forms.Button();
+            this.isAccountValid = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtLogin
             // 
             this.txtLogin.AutoSize = true;
-            this.txtLogin.Location = new System.Drawing.Point(60, 49);
+            this.txtLogin.Location = new System.Drawing.Point(60, 35);
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(39, 13);
             this.txtLogin.TabIndex = 0;
@@ -48,7 +49,7 @@ namespace VAdmin
             // txtPassword
             // 
             this.txtPassword.AutoSize = true;
-            this.txtPassword.Location = new System.Drawing.Point(60, 86);
+            this.txtPassword.Location = new System.Drawing.Point(60, 72);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(59, 13);
             this.txtPassword.TabIndex = 1;
@@ -57,14 +58,14 @@ namespace VAdmin
             // 
             // postLogin
             // 
-            this.postLogin.Location = new System.Drawing.Point(141, 46);
+            this.postLogin.Location = new System.Drawing.Point(141, 32);
             this.postLogin.Name = "postLogin";
             this.postLogin.Size = new System.Drawing.Size(100, 20);
             this.postLogin.TabIndex = 2;
             // 
             // postPassword
             // 
-            this.postPassword.Location = new System.Drawing.Point(141, 83);
+            this.postPassword.Location = new System.Drawing.Point(141, 69);
             this.postPassword.Name = "postPassword";
             this.postPassword.PasswordChar = '•';
             this.postPassword.Size = new System.Drawing.Size(100, 20);
@@ -80,11 +81,24 @@ namespace VAdmin
             this.but_Connection.UseVisualStyleBackColor = true;
             this.but_Connection.Click += new System.EventHandler(this.but_Connection_Click);
             // 
+            // isAccountValid
+            // 
+            this.isAccountValid.AutoSize = true;
+            this.isAccountValid.ForeColor = System.Drawing.Color.Red;
+            this.isAccountValid.Location = new System.Drawing.Point(63, 98);
+            this.isAccountValid.Name = "isAccountValid";
+            this.isAccountValid.Size = new System.Drawing.Size(179, 17);
+            this.isAccountValid.TabIndex = 5;
+            this.isAccountValid.Text = "Le compte spécifié n\'est pas valide";
+            this.isAccountValid.UseCompatibleTextRendering = true;
+            this.isAccountValid.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(301, 165);
+            this.Controls.Add(this.isAccountValid);
             this.Controls.Add(this.but_Connection);
             this.Controls.Add(this.postPassword);
             this.Controls.Add(this.postLogin);
@@ -105,6 +119,7 @@ namespace VAdmin
         private System.Windows.Forms.TextBox postLogin;
         private System.Windows.Forms.TextBox postPassword;
         private System.Windows.Forms.Button but_Connection;
+        private System.Windows.Forms.Label isAccountValid;
     }
 }
 
