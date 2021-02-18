@@ -21,5 +21,19 @@ namespace VAdmin
         {
 
         }
+
+        private void but_Connection_Click(object sender, EventArgs e)
+        {
+            string login = postLogin.Text;
+            string password = postPassword.Text;
+
+            if(login == "admin" && password == "admin")
+            {
+                MessageBox.Show("Condition testée");
+            } else
+            {
+                MessageBox.Show("Mauvais identifiants");
+            }
+        }
     }
 }

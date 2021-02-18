@@ -31,8 +31,8 @@ namespace VAdmin
         {
             this.txtLogin = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.postLogin = new System.Windows.Forms.TextBox();
+            this.postPassword = new System.Windows.Forms.TextBox();
             this.but_Connection = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -55,20 +55,20 @@ namespace VAdmin
             this.txtPassword.Text = "Password :";
             this.txtPassword.Click += new System.EventHandler(this.label2_Click);
             // 
-            // textBox1
+            // postLogin
             // 
-            this.textBox1.Location = new System.Drawing.Point(141, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
+            this.postLogin.Location = new System.Drawing.Point(141, 46);
+            this.postLogin.Name = "postLogin";
+            this.postLogin.Size = new System.Drawing.Size(100, 20);
+            this.postLogin.TabIndex = 2;
             // 
-            // textBox2
+            // postPassword
             // 
-            this.textBox2.Location = new System.Drawing.Point(141, 83);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '•';
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 3;
+            this.postPassword.Location = new System.Drawing.Point(141, 83);
+            this.postPassword.Name = "postPassword";
+            this.postPassword.PasswordChar = '•';
+            this.postPassword.Size = new System.Drawing.Size(100, 20);
+            this.postPassword.TabIndex = 3;
             // 
             // but_Connection
             // 
@@ -78,6 +78,7 @@ namespace VAdmin
             this.but_Connection.TabIndex = 4;
             this.but_Connection.Text = "Se connecter";
             this.but_Connection.UseVisualStyleBackColor = true;
+            this.but_Connection.Click += new System.EventHandler(this.but_Connection_Click);
             // 
             // Form1
             // 
@@ -85,8 +86,8 @@ namespace VAdmin
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(301, 165);
             this.Controls.Add(this.but_Connection);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.postPassword);
+            this.Controls.Add(this.postLogin);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtLogin);
             this.MaximizeBox = false;
@@ -101,8 +102,8 @@ namespace VAdmin
 
         private System.Windows.Forms.Label txtLogin;
         private System.Windows.Forms.Label txtPassword;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox postLogin;
+        private System.Windows.Forms.TextBox postPassword;
         private System.Windows.Forms.Button but_Connection;
     }
 }
