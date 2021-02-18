@@ -19,18 +19,18 @@ namespace VAdmin
             InitializeComponent();
             GetDataFromApi();
             // Load data from API
-            GetDataFromApi();
         }
         // Update all components on the main view
         public void ReloadContent(Root User)
         {
-            UserName.Text = User.results[0].name.first + " " + User.results[0].name.last;
+            //UserName.Text = User.results[0].name.first + " "
+            UserName.Text = User.results[0].users_name + " ";
         }
 
         // Load data from API
         public void GetDataFromApi()
         {
-            string url = "https://randomuser.me/api/";
+            string url = "http://localhost/api-veiko/user/1";
             var LoadedUser = new Root();
 
             // Try to get data
@@ -38,6 +38,7 @@ namespace VAdmin
             {
                 LoadedUser = url.GetJsonFromUrl().FromJson<Root>();
                 LoadedUser.PrintDump();
+                Console.WriteLine(LoadedUser);
                 ReloadContent(LoadedUser);
             }
             // Gest error
@@ -66,16 +67,33 @@ namespace VAdmin
                 isAccountValid.Visible = true;
             }
         }
+
+        private void Reload_Click(object sender, EventArgs e)
+        {
+            GetDataFromApi();
+        }
+
+        private void UserName_Click(object sender, EventArgs e)
+        {
+
+        }
     }
-    public class Root
+    public class Utilisateur
     {
         public string users_id { get; set; }
-        public string users_name { get; set; }
         public string users_address { get; set; }
         public string users_email { get; set; }
         public string users_password { get; set; }
         public string users_birthday { get; set; }
         public string user_group { get; set; }
         public string avatar_url { get; set; }
+    }
+    public class Result
+    {
+        public string users_name { get; set; }
+    }
+    public class Root
+    {
+        public List<Result> results { get; set; }
     }
 }

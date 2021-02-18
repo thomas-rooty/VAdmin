@@ -35,6 +35,8 @@ namespace VAdmin
             this.postPassword = new System.Windows.Forms.TextBox();
             this.but_Connection = new System.Windows.Forms.Button();
             this.isAccountValid = new System.Windows.Forms.Label();
+            this.UserName = new System.Windows.Forms.Label();
+            this.Reload = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtLogin
@@ -61,7 +63,7 @@ namespace VAdmin
             // postLogin
             // 
             this.postLogin.Location = new System.Drawing.Point(188, 39);
-            this.postLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.postLogin.Margin = new System.Windows.Forms.Padding(4);
             this.postLogin.Name = "postLogin";
             this.postLogin.Size = new System.Drawing.Size(132, 22);
             this.postLogin.TabIndex = 2;
@@ -69,7 +71,7 @@ namespace VAdmin
             // postPassword
             // 
             this.postPassword.Location = new System.Drawing.Point(188, 85);
-            this.postPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.postPassword.Margin = new System.Windows.Forms.Padding(4);
             this.postPassword.Name = "postPassword";
             this.postPassword.PasswordChar = '•';
             this.postPassword.Size = new System.Drawing.Size(132, 22);
@@ -78,7 +80,7 @@ namespace VAdmin
             // but_Connection
             // 
             this.but_Connection.Location = new System.Drawing.Point(111, 160);
-            this.but_Connection.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.but_Connection.Margin = new System.Windows.Forms.Padding(4);
             this.but_Connection.Name = "but_Connection";
             this.but_Connection.Size = new System.Drawing.Size(180, 28);
             this.but_Connection.TabIndex = 4;
@@ -99,18 +101,40 @@ namespace VAdmin
             this.isAccountValid.UseCompatibleTextRendering = true;
             this.isAccountValid.Visible = false;
             // 
+            // UserName
+            // 
+            this.UserName.AutoSize = true;
+            this.UserName.Location = new System.Drawing.Point(409, 39);
+            this.UserName.Name = "UserName";
+            this.UserName.Size = new System.Drawing.Size(74, 16);
+            this.UserName.TabIndex = 6;
+            this.UserName.Text = "UserName";
+            this.UserName.Click += new System.EventHandler(this.UserName_Click);
+            // 
+            // Reload
+            // 
+            this.Reload.Location = new System.Drawing.Point(412, 160);
+            this.Reload.Name = "Reload";
+            this.Reload.Size = new System.Drawing.Size(75, 23);
+            this.Reload.TabIndex = 7;
+            this.Reload.Text = "Reload";
+            this.Reload.UseVisualStyleBackColor = true;
+            this.Reload.Click += new System.EventHandler(this.Reload_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(591, 203);
+            this.Controls.Add(this.Reload);
+            this.Controls.Add(this.UserName);
             this.Controls.Add(this.isAccountValid);
             this.Controls.Add(this.but_Connection);
             this.Controls.Add(this.postPassword);
             this.Controls.Add(this.postLogin);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtLogin);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "VAdmin - Connexion";
@@ -127,6 +151,8 @@ namespace VAdmin
         private System.Windows.Forms.TextBox postPassword;
         private System.Windows.Forms.Button but_Connection;
         private System.Windows.Forms.Label isAccountValid;
+        private System.Windows.Forms.Label UserName;
+        private System.Windows.Forms.Button Reload;
     }
 }
 
