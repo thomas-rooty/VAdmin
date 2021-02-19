@@ -21,7 +21,7 @@ namespace VAdmin
             // Load data from API
         }
         // Update all components on the main view
-        public void ReloadContent(Root root)
+        public void ReloadContent(Root User)
         {
             //UserName.Text = User.results[0].name.first + " "
             UserName.Text = User.User[0].users_name;
