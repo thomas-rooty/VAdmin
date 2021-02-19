@@ -21,7 +21,7 @@ namespace VAdmin
             // Load data from API
         }
         // Update all components on the main view
-        public void ReloadContent(Root User)
+        public void ReloadContent(Root root)
         {
             //UserName.Text = User.results[0].name.first + " "
             UserName.Text = User.User[0].users_name;
@@ -36,7 +36,8 @@ namespace VAdmin
             // Try to get data
             try
             {
-                LoadedUser = url.GetJsonFromUrl().FromJson<Root>();
+                LoadedUser = url.GetStringFromUrl().FromJson<Root>();
+                //Rechercher comment convertir le texte de LoadedUser en json
                 LoadedUser.PrintDump();
                 ReloadContent(LoadedUser);
             }
@@ -57,11 +58,12 @@ namespace VAdmin
             string login = postLogin.Text;
             string password = postPassword.Text;
 
-            if(login == "admin" && password == "admin")
+            if (login == "admin" && password == "admin")
             {
                 MessageBox.Show("Condition testée");
                 isAccountValid.Visible = false;
-            } else
+            }
+            else
             {
                 isAccountValid.Visible = true;
             }
@@ -94,4 +96,5 @@ namespace VAdmin
     {
         public List<User> User { get; set; }
     }
+
 }
