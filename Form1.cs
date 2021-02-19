@@ -21,10 +21,10 @@ namespace VAdmin
             // Load data from API
         }
         // Update all components on the main view
-        public void ReloadContent(Root User)
+        public void ReloadContent(Root root)
         {
             //UserName.Text = User.results[0].name.first + " "
-            UserName.Text = User.results[0].users_name + " ";
+            UserName.Text = root.User.users_name + " ";
         }
 
         // Load data from API
@@ -36,7 +36,8 @@ namespace VAdmin
             // Try to get data
             try
             {
-                LoadedUser = url.GetJsonFromUrl().FromJson<Root>();
+                LoadedUser = url.GetStringFromUrl().FromJson<Root>();
+                //Rechercher comment convertir le texte de LoadedUser en json
                 LoadedUser.PrintDump();
                 Console.WriteLine(LoadedUser);
                 ReloadContent(LoadedUser);
@@ -58,11 +59,12 @@ namespace VAdmin
             string login = postLogin.Text;
             string password = postPassword.Text;
 
-            if(login == "admin" && password == "admin")
+            if (login == "admin" && password == "admin")
             {
                 MessageBox.Show("Condition testée");
                 isAccountValid.Visible = false;
-            } else
+            }
+            else
             {
                 isAccountValid.Visible = true;
             }
@@ -78,9 +80,11 @@ namespace VAdmin
 
         }
     }
-    public class Utilisateur
+    // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
+    public class User
     {
         public string users_id { get; set; }
+        public string users_name { get; set; }
         public string users_address { get; set; }
         public string users_email { get; set; }
         public string users_password { get; set; }
@@ -88,12 +92,10 @@ namespace VAdmin
         public string user_group { get; set; }
         public string avatar_url { get; set; }
     }
-    public class Result
-    {
-        public string users_name { get; set; }
-    }
+
     public class Root
     {
-        public List<Result> results { get; set; }
+        public User User { get; set; }
     }
+
 }
