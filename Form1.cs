@@ -40,7 +40,6 @@ namespace VAdmin
             try
             {
                 LoadedUser = url.GetStringFromUrl().FromJson<Root>();
-                //Rechercher comment convertir le texte de LoadedUser en json
                 LoadedUser.PrintDump();
                 ReloadContent(LoadedUser);
             }
@@ -71,11 +70,13 @@ namespace VAdmin
 
         private void but_Connection_Click(object sender, EventArgs e)
         {
+            //Convertir l'entrée mdp de l'user en md5
             postPassword.Text = ConvertStringtoMD5(postPassword.Text);
+            //Simuler un web client pour faire une requête post à l'api
             var w = new WebClient();
             w.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36 OPR/73.0.3856.400");
             string Response = w.DownloadString("http://127.0.0.1/api-veiko/login.php?users_name=" + postLogin.Text + "&users_password=" + postPassword.Text);
-            //Console.WriteLine(Response);
+            //Plusieurs cas de figure selon le retour de l'API
             switch (Response)
             {
                 case "AccountNotRegistered":
