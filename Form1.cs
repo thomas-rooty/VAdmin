@@ -2,6 +2,7 @@
 using ServiceStack.Text;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -9,11 +10,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 
 namespace VAdmin
 {
     public partial class Form1 : Form
     {
+
         public Form1()
         {
             InitializeComponent();
@@ -53,19 +56,48 @@ namespace VAdmin
 
         }
 
+        public static string ConvertStringtoMD5(string strword)
+        {
+            MD5 md5 = MD5.Create();
+            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(strword);
+            byte[] hash = md5.ComputeHash(inputBytes);
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < hash.Length; i++)
+            {
+                sb.Append(hash[i].ToString("x2"));
+            }
+            return sb.ToString();
+        }
+
         private void but_Connection_Click(object sender, EventArgs e)
         {
-            string login = postLogin.Text;
-            string password = postPassword.Text;
-
-            if (login == "admin" && password == "admin")
+            postPassword.Text = ConvertStringtoMD5(postPassword.Text);
+            var w = new WebClient();
+            w.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36 OPR/73.0.3856.400");
+            string Response = w.DownloadString("http://127.0.0.1/api-veiko/login.php?users_name=" + postLogin.Text + "&users_password=" + postPassword.Text);
+            //Console.WriteLine(Response);
+            switch (Response)
             {
-                MessageBox.Show("Condition testée");
-                isAccountValid.Visible = false;
-            }
-            else
-            {
-                isAccountValid.Visible = true;
+                case "AccountNotRegistered":
+                    {
+                        MessageBox.Show("Account not registered");
+                        break;
+                    }
+                case "PasswordError":
+                    {
+                        MessageBox.Show("Wrong password");
+                        break;
+                    }
+                case "LoginSuccess":
+                    {
+                        MessageBox.Show("Bienvenue " + postLogin.Text);
+                        break;
+                    }
+                default:
+                    {
+                        MessageBox.Show("Erreur remote server");
+                        break;
+                    }
             }
         }
 
@@ -75,6 +107,11 @@ namespace VAdmin
         }
 
         private void UserName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void postLogin_TextChanged(object sender, EventArgs e)
         {
 
         }
