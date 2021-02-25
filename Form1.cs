@@ -21,10 +21,10 @@ namespace VAdmin
             // Load data from API
         }
         // Update all components on the main view
-        public void ReloadContent(Root root)
+        public void ReloadContent(Root User)
         {
             //UserName.Text = User.results[0].name.first + " "
-            UserName.Text = root.User.users_name + " ";
+            UserName.Text = User.User[0].users_name;
         }
 
         // Load data from API
@@ -39,7 +39,6 @@ namespace VAdmin
                 LoadedUser = url.GetStringFromUrl().FromJson<Root>();
                 //Rechercher comment convertir le texte de LoadedUser en json
                 LoadedUser.PrintDump();
-                Console.WriteLine(LoadedUser);
                 ReloadContent(LoadedUser);
             }
             // Gest error
@@ -89,13 +88,13 @@ namespace VAdmin
         public string users_email { get; set; }
         public string users_password { get; set; }
         public string users_birthday { get; set; }
-        public string user_group { get; set; }
         public string avatar_url { get; set; }
+        public string user_group { get; set; }
     }
 
     public class Root
     {
-        public User User { get; set; }
+        public List<User> User { get; set; }
     }
 
 }
