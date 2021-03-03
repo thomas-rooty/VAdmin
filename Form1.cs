@@ -55,23 +55,8 @@ namespace VAdmin
 
         }
 
-        public static string ConvertStringtoMD5(string strword)
-        {
-            MD5 md5 = MD5.Create();
-            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(strword);
-            byte[] hash = md5.ComputeHash(inputBytes);
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < hash.Length; i++)
-            {
-                sb.Append(hash[i].ToString("x2"));
-            }
-            return sb.ToString();
-        }
-
         private void but_Connection_Click(object sender, EventArgs e)
         {
-            //Convertir l'entrée mdp de l'user en md5
-            postPassword.Text = ConvertStringtoMD5(postPassword.Text);
             //Simuler un web client pour faire une requête post à l'api
             var w = new WebClient();
             w.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36 OPR/73.0.3856.400");
