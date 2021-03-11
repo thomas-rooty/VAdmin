@@ -27,26 +27,45 @@ namespace VAdmin
         public void ReloadContent(Root User)
         {
             //UserName.Text = User.results[0].name.first + " "
-            UserName.Text = User.User[0].users_name;
+            //api_status.Text = User.User[0].users_name;
         }
 
         // Load data from API
         public void GetDataFromApi()
         {
-            string url = "http://localhost/api-veiko/user/1";
-            var LoadedUser = new Root();
-
-            // Try to get data
+            //Initialisation d'un web client
+            var w = new WebClient();
+            w.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36 OPR/73.0.3856.400");
+            string Response = null;
+            //Tentative de contact à la BDD
             try
             {
-                LoadedUser = url.GetStringFromUrl().FromJson<Root>();
-                LoadedUser.PrintDump();
-                ReloadContent(LoadedUser);
+                Response = w.DownloadString("http://127.0.0.1/api-veiko/isAPI_UP.php");
             }
-            // Gest error
-            catch (Exception e)
+            catch
+            {}
+            //Plusieurs cas de figure selon le retour de l'API
+            switch (Response)
             {
-                Console.WriteLine(e);
+                case "UP":
+                    {
+                        api_status.Text = "API Alive";
+                        api_up_img.Visible = true;
+                        break;
+                    }
+                case "DOWN":
+                    {
+                        api_status.Text = "API Down";
+                        api_up_img.Visible = false;
+                        break;
+                    }
+                default:
+                    {
+                        MessageBox.Show("API Injoignable", "Erreur fatale", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        api_status.Text = "API Down";
+                        api_up_img.Visible = false;
+                        break;
+                    }
             }
         }
 

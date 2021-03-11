@@ -29,14 +29,17 @@ namespace VAdmin
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.txtLogin = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.Label();
             this.postLogin = new System.Windows.Forms.TextBox();
             this.postPassword = new System.Windows.Forms.TextBox();
             this.but_Connection = new System.Windows.Forms.Button();
             this.isAccountValid = new System.Windows.Forms.Label();
-            this.UserName = new System.Windows.Forms.Label();
+            this.api_status = new System.Windows.Forms.Label();
             this.Reload = new System.Windows.Forms.Button();
+            this.api_up_img = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.api_up_img)).BeginInit();
             this.SuspendLayout();
             // 
             // txtLogin
@@ -96,16 +99,16 @@ namespace VAdmin
             this.isAccountValid.UseCompatibleTextRendering = true;
             this.isAccountValid.Visible = false;
             // 
-            // UserName
+            // api_status
             // 
-            this.UserName.AutoSize = true;
-            this.UserName.Location = new System.Drawing.Point(307, 32);
-            this.UserName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.UserName.Name = "UserName";
-            this.UserName.Size = new System.Drawing.Size(57, 13);
-            this.UserName.TabIndex = 6;
-            this.UserName.Text = "UserName";
-            this.UserName.Click += new System.EventHandler(this.UserName_Click);
+            this.api_status.AutoSize = true;
+            this.api_status.Location = new System.Drawing.Point(336, 35);
+            this.api_status.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.api_status.Name = "api_status";
+            this.api_status.Size = new System.Drawing.Size(73, 13);
+            this.api_status.TabIndex = 6;
+            this.api_status.Text = "API_STATUS";
+            this.api_status.Click += new System.EventHandler(this.UserName_Click);
             // 
             // Reload
             // 
@@ -118,13 +121,25 @@ namespace VAdmin
             this.Reload.UseVisualStyleBackColor = true;
             this.Reload.Click += new System.EventHandler(this.Reload_Click);
             // 
+            // api_up_img
+            // 
+            this.api_up_img.Image = ((System.Drawing.Image)(resources.GetObject("api_up_img.Image")));
+            this.api_up_img.Location = new System.Drawing.Point(311, 32);
+            this.api_up_img.Name = "api_up_img";
+            this.api_up_img.Size = new System.Drawing.Size(20, 20);
+            this.api_up_img.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.api_up_img.TabIndex = 8;
+            this.api_up_img.TabStop = false;
+            this.api_up_img.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(645, 499);
+            this.Controls.Add(this.api_up_img);
             this.Controls.Add(this.Reload);
-            this.Controls.Add(this.UserName);
+            this.Controls.Add(this.api_status);
             this.Controls.Add(this.isAccountValid);
             this.Controls.Add(this.but_Connection);
             this.Controls.Add(this.postPassword);
@@ -134,6 +149,7 @@ namespace VAdmin
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "VAdmin - Connexion";
+            ((System.ComponentModel.ISupportInitialize)(this.api_up_img)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,8 +163,9 @@ namespace VAdmin
         private System.Windows.Forms.TextBox postPassword;
         private System.Windows.Forms.Button but_Connection;
         private System.Windows.Forms.Label isAccountValid;
-        private System.Windows.Forms.Label UserName;
+        private System.Windows.Forms.Label api_status;
         private System.Windows.Forms.Button Reload;
+        private System.Windows.Forms.PictureBox api_up_img;
     }
 }
 
